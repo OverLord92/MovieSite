@@ -1,0 +1,49 @@
+@CHARSET "UTF-8";
+
+body {
+		
+}
+
+.editMovieRow {
+		display: none;
+}
+
+td {
+	font-size: 20px;
+	width: 200px;
+}
+
+label {
+	font-size: 15px;
+}
+
+.help-block {
+	font-weight: normal;
+	font-size: 13px;
+}
+
+p {
+	font-size: medium;
+}
+
+#sendSuccess {
+	color: #3BDB59;
+	font-size: medium;
+}
+
+a {
+	margin-left: 20px;
+}
+
+.error {
+	color: #F23A22;
+}
+
+tr {
+	font-size: 20px;
+}
+
+#td_button{
+	width: 50px;
+}
+

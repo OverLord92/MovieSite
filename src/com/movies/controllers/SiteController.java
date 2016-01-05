@@ -1,6 +1,7 @@
 package com.movies.controllers;
 
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -43,7 +44,7 @@ public class SiteController {
 	}
 	
 	@RequestMapping(value="/add", method=RequestMethod.POST)
-	public String addMovie(Movie movie, Errors errors, Model model){  
+	public String addMovie(@Valid Movie movie, Errors errors, Model model){  
 		
 		if(!errors.hasErrors()){
 			System.out.println("uspjesno dodan");

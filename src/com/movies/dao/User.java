@@ -1,18 +1,22 @@
 package com.movies.dao;
 
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.stereotype.Component;
 
 @Component
 public class User {
 	
-//	@NotBlank()
-//	@Size(min = 5, max = 15)
-//	@Pattern(regexp = "^\\w{8,}$")
+	@NotBlank()
+	@Size(min = 5, max = 15)
+	@Pattern(regexp = "^\\w{8,}$")
 	private String username;
 	
-//	@NotBlank()
-//	@Size(min = 8, max = 15)
-//	@Pattern(regexp = "^\\S+$")
+	@NotBlank()
+	@Size(min = 8, max = 15)
+	@Pattern(regexp = "^\\S+$")
 	private String password;
 	
 	private boolean enabled = false;

@@ -1,26 +1,33 @@
 package com.movies.dao;
 
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.NotBlank;
+import org.hibernate.validator.constraints.Range;
+
 public class Movie {
 	
 	private int id;
 	
-//	@NotBlank
+	@NotBlank
 	private String name;
 	
-//	@NotNull
-//	@Range(min = 1896, max = 2015)
+	@NotNull
+	@Range(min = 1896, max = 2015)
 	private int year;
 	
-//	@NotBlank
-//	@Size(min=5, max=20)
+	@NotBlank
+	@Size(min=5, max=20)
 	private String genre;
 	
-//	@NotBlank
-//	@Size(min=5, max=20)
+	@NotBlank
+	@Size(min=5, max=20)
 	private String director;
 	
-//	@NotNull
-//	@DecimalMin("0")
+	@NotNull
+	@DecimalMin("0")
 	private int runtime;
 	
 	public Movie(){

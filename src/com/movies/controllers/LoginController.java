@@ -1,6 +1,7 @@
 package com.movies.controllers;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DuplicateKeyException;
@@ -38,7 +39,7 @@ public class LoginController {
 	}
 	
 	@RequestMapping(value="/createAccount", method=RequestMethod.POST)
-	public String showAccount(User user, Errors errors){
+	public String showAccount(@Valid User user, Errors errors){
 		
 		// handle the rest of the user validation
 		if(errors.hasErrors()){

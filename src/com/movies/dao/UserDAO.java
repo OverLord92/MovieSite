@@ -11,6 +11,7 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -20,8 +21,8 @@ public class UserDAO {
 	
 	private NamedParameterJdbcTemplate jdbc;
 	
-//	@Autowired
-//	private PasswordEncoder passwordEncoder;
+	@Autowired
+	private PasswordEncoder passwordEncoder;
 	
 	@Autowired
 	public void setJdbc(DataSource jdbc) {
@@ -33,7 +34,7 @@ public class UserDAO {
 		
 		MapSqlParameterSource params = new MapSqlParameterSource();
 		params.addValue("username", user.getUsername());
-		params.addValue("password", user.getPassword());
+		params.addValue("password", passwordEncoder.encode(user.getPassword()));
 		params.addValue("authority", user.getAuthority());
 		params.addValue("enabled", user.isEnabled());
 		

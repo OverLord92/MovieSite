@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<%-- <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %> --%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -44,12 +44,12 @@
 					<td>${movie.director}</td>
 					<td>${movie.runtime}</td>
 					
-<!-- 					<sec:authorize access="isAuthenticated()"> -->
+					<sec:authorize access="isAuthenticated()">
 					<td id="td_button"><button class="btn btn-warning editMovie">Edit</button></td>
 					<td id="td_button"><a href="<spring:url value="/delete/${movie.id}"/>"><button
 								class="btn btn-danger">Delete</button></a>
 					</td>
-<!-- 					</sec:authorize> -->
+					</sec:authorize>
 				</tr>
 				<tr class="editMovieRow">
 					<td colspan="2"></td>

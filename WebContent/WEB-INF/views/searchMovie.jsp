@@ -15,13 +15,12 @@
 <title>Insert title here</title>
 <script type="text/javascript"
 	src="<spring:url value="/resources/js/jquery.core.js"/>"></script>
-<script type="text/javascript"
-	src="<spring:url value="/resources/js/search.js"/>"></script>
-	
 <script>
 
 $(document).ready(function(){
 
+	alert("radi");
+	
 	function success(data) {
 		
 		$("#movieResult").find("tr:gt(0)").remove();
@@ -44,6 +43,9 @@ $(document).ready(function(){
 	$('#submitButton').click(function(event){
 		event.preventDefault();
 		
+		alert("radi");
+
+		
 		var name = $('#name').val();
 		var fromYear = $('#fromYear').val();
 		var toYear = $('#toYear').val();
@@ -56,8 +58,7 @@ $(document).ready(function(){
 				'name': name,
 				'fromYear': fromYear,
 				'toYear': toYear,
-				'genre': genre,
-				'director': director
+				'genre': genre
 			}),
 			accept: 'application/json',
 			'dataType': 'json',

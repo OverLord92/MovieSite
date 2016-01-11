@@ -30,6 +30,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			.authoritiesByUsernameQuery(
 					"SELECT username, authority from authorities WHERE BINARY username=?")
 			.rolePrefix("ROLE_");
+		
 	}
 		
 	protected void configure(HttpSecurity http) throws Exception {

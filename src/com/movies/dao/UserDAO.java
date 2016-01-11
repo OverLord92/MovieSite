@@ -11,6 +11,7 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -45,10 +46,10 @@ public class UserDAO {
 				" VALUES (:username, :authority)", params)) == 1;
 	}
 	
-//	@Secured("ROLE_ADMIN")
+	@Secured("ROLE_ADMIN")
 	public List<User> getAllUsers(){
-		
-		return jdbc.query("SELECT * FROM users,  authorities WHERE users.username=authorities.username", new BeanPropertyRowMapper(User.class));
+		                                                                                               ////////////////////
+		return jdbc.query("SELECT * FROM users,  authorities WHERE users.username=authorities.username", new BeanPropertyRowMapper<User>());
 	}
 	
 	public boolean userExists(String username){

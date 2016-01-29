@@ -68,8 +68,6 @@ public class LoginController {
 	@RequestMapping("checkIfUserExists")
 	public @ResponseBody String doesUserExist(HttpServletRequest request){
 		
-		System.out.println("pozvan ajax");
-		
 		String username = request.getParameter("username");
 		
 		boolean userExists = userDAO.userExists(username);

@@ -37,22 +37,22 @@ public class UserDAO {
 		MapSqlParameterSource params = new MapSqlParameterSource();
 		params.addValue("username", user.getUsername());
 		params.addValue("password", passwordEncoder.encode(user.getPassword()));
-		params.addValue("authority", user.getAuthority());
 		params.addValue("enabled", user.isEnabled());
+		params.addValue("authority", user.getAuthority());
 		
-		jdbc.update("INSERT INTO users (username, password, enabled)" +
-				" VALUES (:username, :password, :enabled)", params);
+		return (jdbc.update("INSERT INTO users (username, password, enabled, authority)" +
+				" VALUES (:username, :password, :enabled, :authority)", params)) == 1;
 		
-		return (jdbc.update("INSERT INTO authorities (username, authority)" +
-				" VALUES (:username, :authority)", params)) == 1;
 	}
 	
+	/** Returns all users from database */
 	@Secured("ROLE_ADMIN")
 	public List<User> getAllUsers(){
-		                                                                                               ////////////////////
-		return jdbc.query("SELECT * FROM users,  authorities WHERE users.username=authorities.username", new BeanPropertyRowMapper<User>());
+		                                                                                              
+		return jdbc.query("SELECT * FROM users", new BeanPropertyRowMapper<User>());
 	}
 	
+	/** Check if user exists in the database */
 	public boolean userExists(String username){
 		return (jdbc.queryForObject("SELECT COUNT(*) from users WHERE username=:username", 
 				new MapSqlParameterSource("username", username), Integer.class)) > 0;

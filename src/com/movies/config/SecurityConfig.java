@@ -28,7 +28,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			.usersByUsernameQuery(
 					"SELECT username, password, enabled FROM users WHERE BINARY username=?")
 			.authoritiesByUsernameQuery(
-					"SELECT username, authority from authorities WHERE BINARY username=?")
+					"SELECT username, authority from users WHERE BINARY username=?")
 			.rolePrefix("ROLE_");
 		
 	}

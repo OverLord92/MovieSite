@@ -34,7 +34,6 @@ public class LoginController {
 	
 	@RequestMapping("/register")
 	public String showRegistrationForm(@ModelAttribute User user){
-		System.out.println("pozvan register");
 		return "register";
 	}
 	
@@ -46,14 +45,14 @@ public class LoginController {
 			return "register";
 		}
 		
-		user.setEnabled(true);
-		user.setAuthority("USER");
-		
 		// handle duplicate usernames
 		if(userDAO.userExists(user.getUsername())){
 			errors.rejectValue("username", "DuplicateKey.user.username");
 			return "register";
 		}
+		
+		user.setEnabled(true);
+		user.setAuthority("USER");
 		
 		try {
 			userDAO.insertUser(user);
@@ -66,16 +65,13 @@ public class LoginController {
 	}
 	
 	@RequestMapping("checkIfUserExists")
-	public @ResponseBody String doesUserExist(HttpServletRequest request){
+	public @ResponseBody String isUsernameAvailable(HttpServletRequest request){
 		
 		String username = request.getParameter("username");
 		
 		boolean userExists = userDAO.userExists(username);
 		
-		if(userExists)
-			return "false";
-		else
-			return "true";
+		return !userExists + "";
 		
 	}
 }

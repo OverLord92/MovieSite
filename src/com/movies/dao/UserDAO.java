@@ -47,8 +47,7 @@ public class UserDAO {
 	
 	/** Returns all users from database */
 	@Secured("ROLE_ADMIN")
-	public List<User> getAllUsers(){
-		                                                                                              
+	public List<User> getAllUsers(){                                    
 		return jdbc.query("SELECT * FROM users", new BeanPropertyRowMapper<User>());
 	}
 	

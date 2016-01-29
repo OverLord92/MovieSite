@@ -53,7 +53,7 @@ $(document).ready(function(){
 		
 		$.ajax({
 			'type': 'POST',
-			'url': '<c:url value="/searchMoviez" />', 
+			'url': '<c:url value="/searchMovies" />', 
 			'data': JSON.stringify({
 				'name': name,
 				'fromYear': fromYear,

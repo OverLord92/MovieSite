@@ -24,7 +24,7 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 				new InternalResourceViewResolver();
 		resolver.setPrefix("/WEB-INF/views/");
 		resolver.setSuffix(".jsp");
-		resolver.setExposeContextBeansAsAttributes(true);    //////////
+		resolver.setExposeContextBeansAsAttributes(true);  
 		return resolver;
 	}
 	
@@ -38,7 +38,7 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 	@Override
 	public void configureDefaultServletHandling(
 			DefaultServletHandlerConfigurer configurer) {
-		configurer.enable();                                   ////////////////
+		configurer.enable();                               
 	}
 	
 	@Override

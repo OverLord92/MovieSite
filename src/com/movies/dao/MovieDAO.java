@@ -11,9 +11,11 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Repository;
 
-@Service
+import com.movies.beans.Movie;
+
+@Repository
 public class MovieDAO {
 	
 	NamedParameterJdbcTemplate jdbc;
@@ -58,7 +60,7 @@ public class MovieDAO {
 			movie.setId(rs.getInt("id"));
 			movie.setName(rs.getString("name"));
 			movie.setYear(rs.getInt("year"));
-			movie.setGenre(rs.getString("genre"));  ///// kasnije dodaj da moze viti vise zanrova
+			movie.setGenre(rs.getString("genre")); 
 			movie.setDirector(rs.getString("director"));
 			movie.setRuntime(rs.getInt("runtime"));
 			

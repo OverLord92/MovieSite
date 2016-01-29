@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.movies.dao.Movie;
+import com.movies.beans.Movie;
 import com.movies.dao.MovieDAO;
 
 @Controller

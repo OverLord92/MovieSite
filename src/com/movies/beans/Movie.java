@@ -1,4 +1,4 @@
-package com.movies.dao;
+package com.movies.beans;
 
 import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.NotNull;
@@ -8,6 +8,8 @@ import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.Range;
 
 public class Movie {
+	
+	public static final int YEAR_OF_FIRST_RECORDED_MOVIE = 1896;
 	
 	private int id;
 	
@@ -89,7 +91,11 @@ public class Movie {
 
 	@Override
 	public String toString() {
-		return "Movie [id=" + id + ", name=" + name + ", year=" + year + ", genre=" + genre + ", director=" + director
+		return "Movie [id=" + id 
+				+ ", name=" + name 
+				+ ", year=" + year 
+				+ ", genre=" + genre 
+				+ ", director=" + director
 				+ ", runtime=" + runtime + "]";
 	}
 	

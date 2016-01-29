@@ -1,4 +1,4 @@
-package com.movies.dao;
+package com.movies.beans;
 
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;

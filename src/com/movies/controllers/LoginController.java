@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.movies.dao.User;
+import com.movies.beans.User;
 import com.movies.dao.UserDAO;
 
 @Controller

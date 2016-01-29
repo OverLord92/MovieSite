@@ -13,11 +13,12 @@ import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-@Service
-//@EnableGlobalMethodSecurity(securedEnabled = true)
+import com.movies.beans.User;
+
+@Repository
 public class UserDAO {
 	
 	private NamedParameterJdbcTemplate jdbc;
